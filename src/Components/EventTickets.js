@@ -5,6 +5,7 @@ import { showAllTickets } from "../Actions/ticketActions";
 import { useParams } from "react-router-dom";
 import TicketLayout from "./TicketLayout";
 import { Grid } from "@material-ui/core";
+import CreateNewTicketContainer from "./CreateNewTicketContainer";
 const EventTickets = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -34,6 +35,7 @@ const EventTickets = () => {
         <Grid container spacing={4}>
           {filteredTickets.map((ticketsObject) => ticketCard(ticketsObject))}
         </Grid>
+        <CreateNewTicketContainer />
       </div>
     );
   }

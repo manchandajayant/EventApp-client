@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { showAllEvents } from "../Actions/eventActions";
 import Grid from "@material-ui/core/Grid";
 import Layout from "./Layout";
+import LoginPage from "./LoginPage";
+import SignUp from "./SignUp";
 
 const EventListContainer = () => {
   const dispatch = useDispatch();
@@ -26,6 +28,9 @@ const EventListContainer = () => {
         {events.map((eventsObject) => eventCard(eventsObject))}
       </Grid>
       <br />
+      <LoginPage />
+
+      <SignUp />
     </div>
   );
 };
