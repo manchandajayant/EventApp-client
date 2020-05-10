@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showAllEvents } from "../Actions/eventActions";
-import AddNewEventContainer from "./AddNewEventContainer";
 import Grid from "@material-ui/core/Grid";
 import Layout from "./Layout";
 
@@ -11,7 +10,7 @@ const EventListContainer = () => {
 
   useEffect(() => {
     dispatch(showAllEvents());
-  }, []);
+  }, [dispatch]);
 
   const eventCard = (eventsObject) => {
     return (

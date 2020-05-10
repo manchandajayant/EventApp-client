@@ -1,4 +1,5 @@
 import request from "superagent";
+import superagent from "superagent";
 
 export const EVENTS_FETCHED = "EVENTS_FETCHED";
 export const NEW_EVENT = "NEW_EVENT";
@@ -47,26 +48,26 @@ const singleEvent = (event) => ({
   payload: event,
 });
 
-export const fetchEvent = (id) => (dispatch, getState) => {
-  request
-    .get(`${baseUrl}/event/${id}`)
-    .send(id)
-    .then((res) => {
-      //console.log(res.body);
-      const action = singleEvent(res.body);
-      dispatch(action);
-    })
-    .catch(console.error);
-};
-
-// export const fetchEvent = id => {
-//   return async function(dispatch) {
-//     try {
-//       const res = await superagent.get(`${baseUrl}/event/${id}`).send(id);
+// export const fetchEvent = (id) => (dispatch, getState) => {
+//   request
+//     .get(`${baseUrl}/event/${id}`)
+//     .send(id)
+//     .then((res) => {
+//       //console.log(res.body);
 //       const action = singleEvent(res.body);
 //       dispatch(action);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
+//     })
+//     .catch(console.error);
 // };
+
+export const fetchEvent = (id) => {
+  return async function (dispatch) {
+    try {
+      const res = await superagent.get(`${baseUrl}/event/${id}`).send(id);
+      const action = singleEvent(res.body);
+      dispatch(action);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
