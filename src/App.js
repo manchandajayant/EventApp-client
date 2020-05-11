@@ -8,7 +8,11 @@ import AddNewEventContainer from "./Components/AddNewEventContainer";
 import EventTickets from "./Components/EventTickets";
 function App() {
   return (
-    <Grid container direction="column" style={{ backgroundColor: "#fff" }}>
+    <Grid
+      container
+      direction="column"
+      style={{ backgroundColor: "rgba(150,250,250,0.1)" }}
+    >
       <Grid item>
         <Navigation />
       </Grid>

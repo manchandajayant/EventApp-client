@@ -11,10 +11,10 @@ const CreateNewTicketContainer = () => {
   console.log("evvent", user);
   const [eventId, setEventId] = useState(event.id);
   console.log(eventId);
-  const [userID, setUserId] = useState(user.id);
+  const [userId, setUserId] = useState(user.loggedInUser);
   const dispatch = useDispatch();
 
-  const data = { price, description, url, eventId };
+  const data = { price, description, url, eventId, userId };
   const onSubmit = (event) => {
     event.preventDefault();
     dispatch(newTicket(data));

@@ -23,8 +23,13 @@ const EventTickets = () => {
       </Grid>
     );
   };
-  const filteredTickets = tickets.filter((f) => f.id === id);
-  console.log("tickets", tickets);
+
+  const filteredTickets = tickets.filter((f) => {
+    console.log("array", f.eventId);
+    console.log("comp", id);
+    return f.eventId === parseInt(id);
+  });
+  console.log("tickets", filteredTickets);
   console.log("event", event);
   if (!event) {
     return <div>loading...</div>;

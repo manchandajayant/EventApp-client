@@ -5,6 +5,7 @@ export default function ticketsReducer(state = initialState, action) {
   // console.log(action);
   switch (action.type) {
     case TICKETS_FETCHED: {
+      console.log("reducer", action.payload);
       return action.payload;
     }
     case NEW_TICKET: {

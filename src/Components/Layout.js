@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 12,
   },
   square: {
-    backgroundColor: "rgba(50,50,50,0.5)",
+    backgroundColor: "rgba(250,25,0,0.9)",
+    color: "#000",
   },
 }));
 
@@ -31,7 +32,10 @@ const Layout = (props) => {
   // const bull = <span className={classes.bullet}></span>;
   const { name, description, url, startDate, id } = props;
   return (
-    <Card variant="outlined" style={{ backgroundColor: "#fff" }}>
+    <Card
+      variant="outlined"
+      style={{ backgroundColor: "rgba(250,250,250,0.8)" }}
+    >
       <CardHeader
         avatar={
           <Avatar variant="square" className={classes.square}>
@@ -60,8 +64,13 @@ const Layout = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" style={{ backgroundColor: "rgba(50,50,50,0.5)" }}>
-          Buy Tickets
+        <Button size="small" style={{ backgroundColor: "rgba(250,25,0,0.9)" }}>
+          <Link
+            to={`/events/${id}`}
+            style={{ color: "#000", textDecoration: "none" }}
+          >
+            Buy Tickets
+          </Link>
         </Button>
       </CardActions>
     </Card>
