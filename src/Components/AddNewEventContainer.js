@@ -60,7 +60,7 @@ const AddNewEventContainer = () => {
           START DATE:
           <KeyboardDatePicker
             margin="normal"
-            id="date-picker-dialog"
+            id="date-picker-dialog-start"
             label="Date picker dialog"
             format="yyyy/MM/dd"
             value={startDate}
@@ -72,7 +72,7 @@ const AddNewEventContainer = () => {
           END DATE:
           <KeyboardDatePicker
             margin="normal"
-            id="date-picker-dialog"
+            id="date-picker-dialog-end"
             label="Date picker dialog"
             format="yyyy/MM/dd"
             value={endDate}

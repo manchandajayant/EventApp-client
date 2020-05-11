@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 12,
   },
   square: {
-    backgroundColor: "rgba(250,25,0,0.9)",
+    backgroundColor: "rgba(5,255,150,0.9)",
     color: "#000",
   },
 }));
@@ -64,7 +64,7 @@ const Layout = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" style={{ backgroundColor: "rgba(250,25,0,0.9)" }}>
+        <Button size="small" style={{ backgroundColor: "rgba(5,255,150,0.9)" }}>
           <Link
             to={`/events/${id}`}
             style={{ color: "#000", textDecoration: "none" }}

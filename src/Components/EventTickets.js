@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEvent } from "../Actions/eventActions";
 import { showAllTickets } from "../Actions/ticketActions";
@@ -38,9 +38,9 @@ const EventTickets = () => {
       <div>
         <h1>{event.name}</h1>
         <Grid container spacing={4}>
-          {filteredTickets.map((ticketsObject, index) =>
-            ticketCard(ticketsObject)
-          )}
+          {filteredTickets.map((ticketsObject, index) => (
+            <Fragment key={Math.random()}>{ticketCard(ticketsObject)}</Fragment>
+          ))}
         </Grid>
         <CreateNewTicketContainer />
       </div>
