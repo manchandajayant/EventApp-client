@@ -25,7 +25,7 @@ const EventListContainer = () => {
   return (
     <div>
       <Grid container spacing={4}>
-        {events.map((eventsObject) => eventCard(eventsObject))}
+        {events.map((eventsObject, index) => eventCard(eventsObject))}
       </Grid>
       <br />
       <LoginPage />

@@ -38,7 +38,9 @@ const EventTickets = () => {
       <div>
         <h1>{event.name}</h1>
         <Grid container spacing={4}>
-          {filteredTickets.map((ticketsObject) => ticketCard(ticketsObject))}
+          {filteredTickets.map((ticketsObject, index) =>
+            ticketCard(ticketsObject)
+          )}
         </Grid>
         <CreateNewTicketContainer />
       </div>
