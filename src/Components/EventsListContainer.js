@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showAllEvents } from "../Actions/eventActions";
 import Grid from "@material-ui/core/Grid";
@@ -25,7 +25,9 @@ const EventListContainer = () => {
   return (
     <div>
       <Grid container spacing={4}>
-        {events.map((eventsObject, index) => eventCard(eventsObject))}
+        {events.map((eventsObject, index) => (
+          <Fragment key={index}>{eventCard(eventsObject)}</Fragment>
+        ))}
       </Grid>
       <br />
       <LoginPage />
