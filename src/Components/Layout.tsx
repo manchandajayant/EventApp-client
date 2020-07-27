@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import CardMedia from "@material-ui/core/CardMedia";
 import { Link } from "react-router-dom";
 import EventAvailableIcon from "@material-ui/icons/EventAvailable";
+import { EventsObject } from "./interfaces";
 const useStyles = makeStyles((theme) => ({
   title: {
     [theme.breakpoints.up("md")]: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Layout = (props) => {
+const Layout = (props: EventsObject) => {
   const classes = useStyles();
   // const bull = <span className={classes.bullet}></span>;
   const { name, description, url, startDate, id } = props;

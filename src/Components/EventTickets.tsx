@@ -6,17 +6,18 @@ import { useParams } from "react-router-dom";
 import TicketLayout from "./TicketLayout";
 import { Grid } from "@material-ui/core";
 import CreateNewTicketContainer from "./CreateNewTicketContainer";
+import { TicketObject, EventsObject } from "./interfaces";
 const EventTickets = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const event = useSelector((state) => state.event);
-  const tickets = useSelector((state) => state.tickets);
+  const event: EventsObject = useSelector((state: any) => state.event);
+  const tickets: [] = useSelector((state: any) => state.tickets);
 
   useEffect(() => {
     dispatch(showAllTickets());
     dispatch(fetchEvent(id));
   }, [id, dispatch]);
-  const ticketCard = (ticketsObject) => {
+  const ticketCard = (ticketsObject: TicketObject) => {
     return (
       <Grid item xs={12} sm={12} md={4}>
         <TicketLayout {...ticketsObject} />
@@ -24,13 +25,10 @@ const EventTickets = () => {
     );
   };
 
-  const filteredTickets = tickets.filter((f) => {
-    console.log("array", f.eventId);
-    console.log("comp", id);
+  const filteredTickets = tickets.filter((f: any) => {
     return f.eventId === parseInt(id);
   });
-  console.log("tickets", filteredTickets);
-  console.log("event", event);
+
   if (!event) {
     return <div>loading...</div>;
   } else {
@@ -38,7 +36,7 @@ const EventTickets = () => {
       <div>
         <h1>{event.name}</h1>
         <Grid container spacing={4}>
-          {filteredTickets.map((ticketsObject, index) => (
+          {filteredTickets.map((ticketsObject: TicketObject, index: number) => (
             <Fragment key={Math.random()}>{ticketCard(ticketsObject)}</Fragment>
           ))}
         </Grid>

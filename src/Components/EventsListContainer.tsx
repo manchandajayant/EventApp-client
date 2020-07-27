@@ -5,27 +5,28 @@ import Grid from "@material-ui/core/Grid";
 import Layout from "./Layout";
 import LoginPage from "./LoginPage";
 import SignUp from "./SignUp";
+import { EventsObject } from "./interfaces";
 
-const EventListContainer = () => {
+const EventListContainer: React.FC = () => {
   const dispatch = useDispatch();
-  const events = useSelector((state) => state.events);
+  const events: [] = useSelector((state: any) => state.events);
 
   useEffect(() => {
     dispatch(showAllEvents());
   }, [dispatch]);
 
-  const eventCard = (eventsObject) => {
+  const eventCard = (eventsObject: EventsObject) => {
     return (
       <Grid item xs={12} sm={12} md={4}>
         <Layout {...eventsObject} />
       </Grid>
     );
   };
-  console.log("list", events);
+
   return (
     <div>
       <Grid container spacing={4}>
-        {events.map((eventsObject, index) => (
+        {events.map((eventsObject: EventsObject, index: number) => (
           <Fragment key={index}>{eventCard(eventsObject)}</Fragment>
         ))}
       </Grid>

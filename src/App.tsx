@@ -6,7 +6,7 @@ import Navigation from "./Components/NavBar";
 import { Route } from "react-router-dom";
 import AddNewEventContainer from "./Components/AddNewEventContainer";
 import EventTickets from "./Components/EventTickets";
-function App() {
+function App(): JSX.Element {
   return (
     <Grid
       container
