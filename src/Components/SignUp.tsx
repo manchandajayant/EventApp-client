@@ -1,24 +1,22 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../Actions/userActions";
-import { useParams, Redirect } from "react-router-dom";
-import { Grid } from "@material-ui/core";
+import { signUpUser } from "../Actions/userActions";
+import { Redirect } from "react-router-dom";
+import { UserObject } from "./interfaces";
 
-const LoginPage = () => {
+const SignUp = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.users);
+  const user: UserObject = useSelector((state: any) => state.users);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const data = { password, email };
-  const onSubmit = (event) => {
+  const onSubmit = (event: any) => {
     event.preventDefault();
-    dispatch(login(data));
+    dispatch(signUpUser(data));
   };
 
-  if (user.auth) {
-    return <Redirect to="/events"></Redirect>;
-  } else {
+  if (!user.newUser) {
     return (
       <div>
         Email
@@ -37,10 +35,12 @@ const LoginPage = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <button onClick={onSubmit}>CREATE</button>
+        <button onClick={onSubmit}>Signup</button>
       </div>
     );
+  } else {
+    return <Redirect to="/events">click to login</Redirect>;
   }
 };
 
-export default LoginPage;
+export default SignUp;

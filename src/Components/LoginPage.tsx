@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { signUpUser } from "../Actions/userActions";
+import { login } from "../Actions/userActions";
 import { Redirect } from "react-router-dom";
-import { Grid } from "@material-ui/core";
-
-const SignUp = () => {
+import { UserObject } from "./interfaces";
+const LoginPage: React.FC = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.users);
+  const user: UserObject = useSelector((state: any) => state.users);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const data = { password, email };
-  const onSubmit = (event) => {
+  const onSubmit = (event: any) => {
     event.preventDefault();
-    dispatch(signUpUser(data));
+    dispatch(login(data));
   };
 
-  if (!user.newUser) {
+  if (user.auth) {
+    return <Redirect to="/events"></Redirect>;
+  } else {
     return (
       <div>
         Email
@@ -35,12 +36,10 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <button onClick={onSubmit}>Signup</button>
+        <button onClick={onSubmit}>CREATE</button>
       </div>
     );
-  } else {
-    return <Redirect to="/events">click to login</Redirect>;
   }
 };
 
-export default SignUp;
+export default LoginPage;

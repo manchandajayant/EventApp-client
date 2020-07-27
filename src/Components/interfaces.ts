@@ -11,3 +11,9 @@ export interface TicketObject {
   description: string;
   url: string;
 }
+
+export interface UserObject {
+  auth: string;
+  newUser: string;
+  loggedInUser: number;
+}
