@@ -8,7 +8,7 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
-// The first commit of Material-UI
+
 
 const AddNewEventContainer = () => {
   const [name, setName] = useState("");
