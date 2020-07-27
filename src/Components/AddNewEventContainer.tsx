@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
@@ -15,18 +14,20 @@ const AddNewEventContainer = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
-  const [startDate, setStartDate] = useState(new Date("2020-04-18T21:11:54"));
-  const [endDate, setEndDate] = useState(new Date("2020-04-18T21:11:59"));
+  const [startDate, setStartDate] = useState<any>(
+    new Date("2020-04-18T21:11:54")
+  );
+  const [endDate, setEndDate] = useState<any>(new Date("2020-04-18T21:11:59"));
   const dispatch = useDispatch();
-  const data = { name, description, url, startDate, endDate };
-  const onSubmit = (event) => {
+  const data: {} = { name, description, url, startDate, endDate };
+  const onSubmit = (event: any) => {
     event.preventDefault();
     dispatch(newEvent(data));
   };
-  const handleStartDateChange = (date) => {
+  const handleStartDateChange = (date: any) => {
     setStartDate(date);
   };
-  const handleEndDateChange = (dateEnd) => {
+  const handleEndDateChange = (dateEnd: any) => {
     setEndDate(dateEnd);
   };
   return (

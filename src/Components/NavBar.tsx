@@ -4,14 +4,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import ArrowForwardIosSharpIcon from "@material-ui/icons/ArrowForwardIosSharp";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import DragIndicatorIcon from "@material-ui/icons/DragIndicator";
-import { Link } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   typoStyles: {
     flex: 1,
   },
 }));
-const Navigation = () => {
+const Navigation: React.FC = () => {
   const classes = useStyles();
   return (
     <AppBar

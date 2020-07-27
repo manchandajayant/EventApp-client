@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Layout = (props: EventsObject) => {
+const Layout = (props: EventsObject): JSX.Element => {
   const classes = useStyles();
   // const bull = <span className={classes.bullet}></span>;
   const { name, description, url, startDate, id } = props;
