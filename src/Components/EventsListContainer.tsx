@@ -31,9 +31,6 @@ const EventListContainer: React.FC = () => {
         ))}
       </Grid>
       <br />
-      <LoginPage />
-
-      <SignUp />
     </div>
   );
 };

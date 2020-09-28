@@ -6,6 +6,16 @@ export interface EventsObject {
   id: number;
 }
 
+export interface EventObject {
+  name: string;
+  description: string;
+  url: string;
+  startDate: string;
+  id: number;
+  endDate: string;
+  tickets: Array<any>;
+}
+
 export interface TicketObject {
   price: string;
   description: string;

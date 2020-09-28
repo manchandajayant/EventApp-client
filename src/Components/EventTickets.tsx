@@ -7,11 +7,12 @@ import TicketLayout from "./TicketLayout";
 import { Grid } from "@material-ui/core";
 import CreateNewTicketContainer from "./CreateNewTicketContainer";
 import { TicketObject, EventsObject } from "./interfaces";
+
 const EventTickets: React.FC = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const event: EventsObject = useSelector((state: any) => state.event);
-  const tickets: [] = useSelector((state: any) => state.tickets);
+  const tickets: Array<any> = useSelector((state: any) => state.tickets);
 
   useEffect(() => {
     dispatch(showAllTickets());

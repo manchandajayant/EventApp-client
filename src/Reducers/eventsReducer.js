@@ -1,4 +1,5 @@
 import { EVENTS_FETCHED, NEW_EVENT } from "../Actions/eventActions";
+import { EventsObject } from "../Components/interfaces";
 const initialState = [];
 
 export default function eventsReducer(state = initialState, action) {

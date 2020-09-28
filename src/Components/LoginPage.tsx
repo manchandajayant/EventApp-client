@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../Actions/userActions";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { UserObject } from "./interfaces";
+import { Typography } from "@material-ui/core";
+
 const LoginPage: React.FC = () => {
   const dispatch = useDispatch();
   const user: UserObject = useSelector((state: any) => state.users);
@@ -36,7 +38,12 @@ const LoginPage: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <button onClick={onSubmit}>CREATE</button>
+        <button onClick={onSubmit}>Login</button>
+        <div>
+          <Link to="/signup">
+            <Typography>Dont have an Account? Sign Up</Typography>
+          </Link>
+        </div>
       </div>
     );
   }
